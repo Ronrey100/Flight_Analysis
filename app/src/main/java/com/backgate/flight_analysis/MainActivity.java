@@ -67,9 +67,9 @@ public class MainActivity extends ActionBarActivity {
             questions_mix_1[i] = "Questions_2_" + random_value;
         }
 
-        for (int j = 0; j < 15; j++) {
+        /*for (int j = 0; j < 15; j++) {
             System.out.println(questions_mix[j] + ", " + questions_mix_1[j] + ", " + questions_mix_2[j]);
-        }
+        }*/
         initializeVariables();
         addListenerOnButton();
     }

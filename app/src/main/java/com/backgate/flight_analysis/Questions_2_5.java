@@ -49,26 +49,37 @@ public class Questions_2_5 extends ActionBarActivity{
             if("-1".equals(questions_mix_2[i])){
                 question_val= questions_mix[i];
                 inc= i;
+                System.out.println("You are at question_2_5 "+questions_mix[i]+", "+i);
                 break;
             }
         }
 
-        System.out.println(question_val+", "+inc);
+        System.out.println("You are at question_2_5 "+question_val+", "+inc);
         
         addListenerOnButton();
     }
 
     public void addListenerOnButton() {
 
-        for(int i=0; i<30; i++){
-            System.out.println(answers_all[i]+", "+values_all[i]);
-        }
 
         if(question_val.equals("-1")) {
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_2_5.this, Processing.class);
+                    if(button1.isChecked()) {
+                        for(int i=0; i<30; i++){
+                            if("frus_eff".equals(answers_all[i])){
+                                values_all[i]= "Frustration";
+                            }
+                        }
+                    } else if(button2.isChecked()) {
+                        for(int i=0; i<30; i++){
+                            if("frus_eff".equals(answers_all[i])){
+                                values_all[i]= "Effort";
+                            }
+                        }
+                    }
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_2_5.this.startActivity(myIntent);

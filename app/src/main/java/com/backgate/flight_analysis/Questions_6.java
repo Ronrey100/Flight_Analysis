@@ -42,11 +42,12 @@ public class Questions_6 extends ActionBarActivity{
             if("-1".equals(questions_mix_2[i])){
                 question_val= questions_mix[i];
                 inc= i;
+                System.out.println("You are at question 6 "+questions_mix[i]+", "+i);
                 break;
             }
         }
 
-        System.out.println(question_val+", "+inc);
+        System.out.println("You are at question 6 "+question_val+", "+inc);
 
         textView_Quest.setText("How insecure, discouraged, irritated, stressed and annoyed were you?");
         textView.setText(seekBar.getProgress() + "%");
@@ -71,9 +72,6 @@ public class Questions_6 extends ActionBarActivity{
 
     public void addListenerOnButton() {
         //Select a specific button to bundle it with the action you want
-        for(int i=0; i<30; i++){
-            System.out.println(answers_all[i]+", "+values_all[i]);
-        }
 
         if(question_val.equals("0")) {
             next_button.setOnClickListener(new View.OnClickListener() {
