@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class Questions_2_0 extends ActionBarActivity{
@@ -25,8 +26,8 @@ public class Questions_2_0 extends ActionBarActivity{
     public String questions_mix_2[]=new String[15];
     public String question_val="-1";
     public int inc=-1;
-    public String answers_all[]=new String[30];
-    public String values_all[]=new String[30];
+    public String answers_all[]=new String[33];
+    public String values_all[]=new String[33];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,27 +66,33 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_1.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_1.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }
@@ -94,27 +101,33 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_2.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_2.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }
@@ -123,27 +136,33 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_3.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_3.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }
@@ -152,27 +171,33 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_4.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_4.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }
@@ -181,27 +206,33 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_5.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_5.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }
@@ -210,27 +241,33 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_6.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_6.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }
@@ -239,27 +276,33 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_7.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_7.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }
@@ -268,27 +311,33 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_8.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_8.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }
@@ -297,27 +346,33 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_9.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_9.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }
@@ -326,27 +381,33 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_10.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_10.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }
@@ -355,27 +416,33 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_11.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_11.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }
@@ -384,27 +451,33 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_12.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_12.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }
@@ -413,27 +486,33 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_13.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_13.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }
@@ -442,27 +521,32 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Questions_2_14.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
+                    if (!button1.isChecked() && !button2.isChecked()) {
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
+                    } else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Questions_2_14.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
                             }
                         }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                        questions_mix_2[inc] = "1";
+                        myIntent.putExtra("string-array", questions_mix);
+                        myIntent.putExtra("string-array-1", questions_mix_1);
+                        myIntent.putExtra("string-array-2", questions_mix_2);
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
                     }
-                    questions_mix_2[inc]="1";
-                    myIntent.putExtra("string-array", questions_mix);
-                    myIntent.putExtra("string-array-1", questions_mix_1);
-                    myIntent.putExtra("string-array-2", questions_mix_2);
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
                 }
             });
         }
@@ -471,23 +555,29 @@ public class Questions_2_0 extends ActionBarActivity{
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent myIntent = new Intent(Questions_2_0.this, Processing.class);
-                    if(button1.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Performance";
-                            }
-                        }
-                    } else if(button2.isChecked()) {
-                        for(int i=0; i<30; i++){
-                            if("perf_frus".equals(answers_all[i])){
-                                values_all[i]= "Frustration";
-                            }
-                        }
+                    if(!button1.isChecked() && !button2.isChecked()){
+                        Toast.makeText(getApplicationContext(), "Please select one of the options provided above.",
+                                Toast.LENGTH_LONG).show();
                     }
-                    myIntent.putExtra("string-array-ans-text", answers_all);
-                    myIntent.putExtra("string-array-ans-vals", values_all);
-                    Questions_2_0.this.startActivity(myIntent);
+                    else {
+                        Intent myIntent = new Intent(Questions_2_0.this, Processing.class);
+                        if (button1.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Performance";
+                                }
+                            }
+                        } else if (button2.isChecked()) {
+                            for (int i = 0; i < 33; i++) {
+                                if ("perf_frus".equals(answers_all[i])) {
+                                    values_all[i] = "Frustration";
+                                }
+                            }
+                        }
+                        myIntent.putExtra("string-array-ans-text", answers_all);
+                        myIntent.putExtra("string-array-ans-vals", values_all);
+                        Questions_2_0.this.startActivity(myIntent);
+                    }
                 }
             });
         }

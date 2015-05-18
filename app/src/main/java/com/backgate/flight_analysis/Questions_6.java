@@ -23,8 +23,8 @@ public class Questions_6 extends ActionBarActivity{
     public String questions_mix_2[]=new String[15];
     public String question_val;
     public int inc;
-    public String answers_all[]=new String[30];
-    public String values_all[]=new String[30];
+    public String answers_all[]=new String[33];
+    public String values_all[]=new String[33];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +78,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_0.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -99,7 +99,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_1.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -120,7 +120,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_2.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -141,7 +141,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_3.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -162,7 +162,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_4.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -183,7 +183,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_5.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -204,7 +204,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_6.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -225,7 +225,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_7.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -246,7 +246,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_8.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -267,7 +267,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_9.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -288,7 +288,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_10.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -309,7 +309,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_11.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -330,7 +330,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_12.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -351,7 +351,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_13.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }
@@ -372,7 +372,7 @@ public class Questions_6 extends ActionBarActivity{
                 @Override
                 public void onClick(View view) {
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_14.class);
-                    for(int i=0; i<30; i++){
+                    for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText());
                         }

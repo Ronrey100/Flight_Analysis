@@ -21,8 +21,8 @@ public class Questions_4 extends ActionBarActivity{
     public String questions_mix[]=new String[15];
     public String questions_mix_1[]=new String[15];
     public String questions_mix_2[]=new String[15];
-    public String answers_all[]=new String[30];
-    public String values_all[]=new String[30];
+    public String answers_all[]=new String[33];
+    public String values_all[]=new String[33];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,7 @@ public class Questions_4 extends ActionBarActivity{
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(Questions_4.this, Questions_5.class);
-                for(int i=0; i<30; i++){
+                for(int i=0; i<33; i++){
                     if("performance".equals(answers_all[i])){
                         values_all[i]=String.valueOf(textView.getText());
                     }

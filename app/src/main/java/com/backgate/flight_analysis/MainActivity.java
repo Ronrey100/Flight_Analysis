@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -26,21 +27,24 @@ public class MainActivity extends ActionBarActivity {
     private EditText height_name;
     private EditText weight_name;
     private EditText flying_exp_name;
+    private EditText subject_id_name;
+    private EditText organisation_name;
+    private EditText task_id_name;
     public String questions_mix[] = new String[15];
     public String questions_mix_1[] = new String[15];
     public String questions_mix_2[] = new String[15];
-    public String answers_all[] = {"first_name", "middle_name", "last_name", "task_performed", "age", "gender", "height", "weight", "fly_exp",
+    public String answers_all[] = {"subject_id", "first_name", "middle_name", "last_name", "organisation", "task_id", "task_performed", "age", "gender", "height", "weight", "fly_exp",
             "mental_demand", "physical_demand", "temporal_demand", "performance", "effort", "frustration",
             "perf_frus", "temp_eff", "temp_ment", "ment_phy", "phy_temp", "frus_eff", "temp_frus", "phy_perf", "phy_frus",
             "eff_phy", "perf_temp", "ment_eff", "perf_ment", "eff_perf", "frus_ment"};
-    public String values_all[]=new String[30];
+    public String values_all[]=new String[33];
     Random myRandom = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        for(int k=0; k<30; k++){
+        for(int k=0; k<33; k++){
             values_all[k]="null";
         }
         for (int j = 0; j < 15; j++) {
@@ -79,46 +83,92 @@ public class MainActivity extends ActionBarActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(MainActivity.this, Questions_1.class);
-                for(int i=0; i<30; i++){
-                    if("first_name".equals(answers_all[i])){
-                        values_all[i] = String.valueOf(first_name.getText());
-                    }
-                    if("middle_name".equals(answers_all[i])){
-                        values_all[i] = String.valueOf(middle_name.getText());
-                    }
-                    if("last_name".equals(answers_all[i])){
-                        values_all[i] = String.valueOf(last_name.getText());
-                    }
-                    if("task_performed".equals(answers_all[i])){
-                        values_all[i] = String.valueOf(task_name.getText());
-                    }
-                    if("age".equals(answers_all[i])){
-                        values_all[i] = String.valueOf(age_name.getText());
-                    }
-                    if("gender".equals(answers_all[i])){
-                        if(button1.isChecked()) {
-                            values_all[i] = String.valueOf(button1.getText());
-                        } else if(button2.isChecked()) {
-                            values_all[i] = String.valueOf(button2.getText());
+                if(String.valueOf(subject_id_name.getText())==null || String.valueOf(subject_id_name.getText()).trim().equals("")){
+                    Toast.makeText(getApplicationContext(), "Please enter the Subject ID.",
+                            Toast.LENGTH_LONG).show();
+                }
+                else if(String.valueOf(first_name.getText())==null || String.valueOf(first_name.getText()).trim().equals("")){
+                    Toast.makeText(getApplicationContext(), "Please enter your First Name.",
+                            Toast.LENGTH_LONG).show();
+                }
+                else if(String.valueOf(last_name.getText())==null || String.valueOf(last_name.getText()).trim().equals("")){
+                    Toast.makeText(getApplicationContext(), "Please enter your Last Name.",
+                            Toast.LENGTH_LONG).show();
+                }
+                else if((String.valueOf(task_id_name.getText())==null && String.valueOf(task_name.getText())==null)
+                        || (String.valueOf(task_id_name.getText()).trim().equals("") && String.valueOf(task_name.getText()).trim().equals(""))
+                        || (String.valueOf(task_id_name.getText()).trim().equals("") && String.valueOf(task_name.getText())==null)
+                        || (String.valueOf(task_id_name.getText())==null && String.valueOf(task_name.getText()).trim().equals(""))){
+                    Toast.makeText(getApplicationContext(), "Please enter either Task ID or Task Name.",
+                            Toast.LENGTH_LONG).show();
+                }
+                else if(String.valueOf(age_name.getText())==null || String.valueOf(age_name.getText()).trim().equals("")){
+                    Toast.makeText(getApplicationContext(), "Please enter your Age.",
+                            Toast.LENGTH_LONG).show();
+                }
+                else if(!button1.isChecked() && !button2.isChecked()){
+                    Toast.makeText(getApplicationContext(), "Please select your gender.",
+                            Toast.LENGTH_LONG).show();
+                }
+                else if(String.valueOf(height_name.getText())==null || String.valueOf(height_name.getText()).trim().equals("")){
+                    Toast.makeText(getApplicationContext(), "Please enter your Height.",
+                            Toast.LENGTH_LONG).show();
+                }
+                else if(String.valueOf(weight_name.getText())==null || String.valueOf(weight_name.getText()).trim().equals("")){
+                    Toast.makeText(getApplicationContext(), "Please enter your Weight.",
+                            Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Intent myIntent = new Intent(MainActivity.this, Questions_1.class);
+                    for (int i = 0; i < 33; i++) {
+                        if ("first_name".equals(answers_all[i])) {
+                            values_all[i] = String.valueOf(first_name.getText());
+                        }
+                        if ("middle_name".equals(answers_all[i])) {
+                            values_all[i] = String.valueOf(middle_name.getText());
+                        }
+                        if ("last_name".equals(answers_all[i])) {
+                            values_all[i] = String.valueOf(last_name.getText());
+                        }
+                        if ("task_performed".equals(answers_all[i])) {
+                            values_all[i] = String.valueOf(task_name.getText());
+                        }
+                        if ("age".equals(answers_all[i])) {
+                            values_all[i] = String.valueOf(age_name.getText());
+                        }
+                        if ("gender".equals(answers_all[i])) {
+                            if (button1.isChecked()) {
+                                values_all[i] = String.valueOf(button1.getText());
+                            } else if (button2.isChecked()) {
+                                values_all[i] = String.valueOf(button2.getText());
+                            }
+                        }
+                        if ("height".equals(answers_all[i])) {
+                            values_all[i] = String.valueOf(height_name.getText());
+                        }
+                        if ("weight".equals(answers_all[i])) {
+                            values_all[i] = String.valueOf(weight_name.getText());
+                        }
+                        if ("fly_exp".equals(answers_all[i])) {
+                            values_all[i] = String.valueOf(flying_exp_name.getText());
+                        }
+                        if ("subject_id".equals(answers_all[i])) {
+                            values_all[i] = String.valueOf(subject_id_name.getText());
+                        }
+                        if ("organisation".equals(answers_all[i])) {
+                            values_all[i] = String.valueOf(organisation_name.getText());
+                        }
+                        if ("task_id".equals(answers_all[i])) {
+                            values_all[i] = String.valueOf(task_id_name.getText());
                         }
                     }
-                    if("height".equals(answers_all[i])){
-                        values_all[i] = String.valueOf(height_name.getText());
-                    }
-                    if("weight".equals(answers_all[i])){
-                        values_all[i] = String.valueOf(weight_name.getText());
-                    }
-                    if("fly_exp".equals(answers_all[i])){
-                        values_all[i] = String.valueOf(flying_exp_name.getText());
-                    }
+                    myIntent.putExtra("string-array", questions_mix);
+                    myIntent.putExtra("string-array-1", questions_mix_1);
+                    myIntent.putExtra("string-array-2", questions_mix_2);
+                    myIntent.putExtra("string-array-ans-text", answers_all);
+                    myIntent.putExtra("string-array-ans-vals", values_all);
+                    MainActivity.this.startActivity(myIntent);
                 }
-                myIntent.putExtra("string-array", questions_mix);
-                myIntent.putExtra("string-array-1", questions_mix_1);
-                myIntent.putExtra("string-array-2", questions_mix_2);
-                myIntent.putExtra("string-array-ans-text", answers_all);
-                myIntent.putExtra("string-array-ans-vals", values_all);
-                MainActivity.this.startActivity(myIntent);
             }
         });
     }
@@ -159,5 +209,8 @@ public class MainActivity extends ActionBarActivity {
         height_name=(EditText)findViewById(R.id.height_value);
         weight_name=(EditText)findViewById(R.id.weight_value);
         flying_exp_name=(EditText)findViewById(R.id.flying_exp_value);
+        subject_id_name=(EditText)findViewById(R.id.subject_id_value);
+        organisation_name=(EditText)findViewById(R.id.org_name_value);
+        task_id_name=(EditText)findViewById(R.id.task_id_value);
     }
 }
