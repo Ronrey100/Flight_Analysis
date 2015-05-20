@@ -150,19 +150,23 @@ public class Processing extends ActionBarActivity {
             }
         }
 
-        /*count[6] = (count[0]/15) * Integer.parseInt(values_all[12]);
-        count[7] = (count[1]/15) * Integer.parseInt(values_all[13]);
-        count[8] = (count[2]/15) * Integer.parseInt(values_all[14]);
-        count[9] = (count[3]/15) * Integer.parseInt(values_all[15]);
-        count[10] = (count[4]/15) * Integer.parseInt(values_all[16]);
-        count[11] = (count[5]/15) * Integer.parseInt(values_all[17]);*/
+        for(int i = 0; i < 6; i++){
+            count[i] = count[i]/15;
+        }
 
-        count[6] = (count[0]/15) * Float.parseFloat("40");
-        count[7] = (count[1]/15) * Float.parseFloat("30");
-        count[8] = (count[2]/15) * Float.parseFloat("45");
-        count[9] = (count[3]/15) * Float.parseFloat("20");
-        count[10] = (count[4]/15) * Float.parseFloat("80");
-        count[11] = (count[5]/15) * Float.parseFloat("75");
+        /*count[6] = count[0] * Float.parseFloat(values_all[12]);
+        count[7] = count[1] * Float.parseFloat(values_all[13]);
+        count[8] = count[2] * Float.parseFloat(values_all[14]);
+        count[9] = count[3] * Float.parseFloat(values_all[15]);
+        count[10] = count[4] * Float.parseFloat(values_all[16]);
+        count[11] = count[5] * Float.parseFloat(values_all[17]);*/
+
+        count[6] = count[0] * Float.parseFloat("40");
+        count[7] = count[1] * Float.parseFloat("30");
+        count[8] = count[2] * Float.parseFloat("45");
+        count[9] = count[3] * Float.parseFloat("20");
+        count[10] = count[4] * Float.parseFloat("80");
+        count[11] = count[5] * Float.parseFloat("75");
 
         for (int i = 18 , j = 0; i < 33 && j < 12; i++, j++){
             values_all[i] = Float.toString(count[j]);
