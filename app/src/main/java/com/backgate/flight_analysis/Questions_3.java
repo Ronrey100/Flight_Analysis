@@ -64,7 +64,8 @@ public class Questions_3 extends ActionBarActivity{
                 Intent myIntent = new Intent(Questions_3.this, Questions_4.class);
                 for(int i=0; i<33; i++){
                     if("temporal_demand".equals(answers_all[i])){
-                        values_all[i]=String.valueOf(textView.getText());
+                        values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
+                        System.out.println(values_all[i]);
                     }
                 }
                 myIntent.putExtra("string-array", questions_mix);

@@ -2,10 +2,10 @@ package com.backgate.flight_analysis;
 
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.opencsv.CSVWriter;
@@ -18,12 +18,14 @@ import java.util.Date;
 
 public class Processing extends ActionBarActivity {
 
+    private TextView textView_directory;
+    private TextView textView_file;
     public String answers_all[]=new String[33];
     public String values_all[]=new String[33];
-    public String[] answers_all1 = {"Subject_ID", "First_Name", "Middle_Name", "Last_Name", "Organisation", "Task_ID", "Task_Name", "Age", "Gender", "Height", "Weight", "Flying_Exp",
-            "MD_Rating", "PD_Rating", "TD_Rating", "Performance_Rating", "Effort_Rating", "Frustration_Rating",
-            "MD_Wt", "PD_Wt", "TD_Wt", "Effort_Wt", "Performance_Wt", "Frustration_Wt", "MD_Weighted_Load", "PD_Weighted_Load", "TD_Weighted_Load",
-            "Effort_Weighted_Load", "Performance_Weighted_Load", "Frustration_Weighted_Load", "WWL"};
+    public String[] answers_all1 = {"Subject_ID", "First_Name", "Middle_Name", "Last_Name", "Organisation", "Task_ID", "Task_Name", "Age", "Gender", "Height", "Weight", "Flying_Exp", "null",
+            "MD_Rating", "PD_Rating", "TD_Rating", "Performance_Rating", "Effort_Rating", "Frustration_Rating", "null",
+            "MD_Wt", "PD_Wt", "TD_Wt", "Effort_Wt", "Performance_Wt", "Frustration_Wt", "null", "MD_Weighted_Load", "PD_Weighted_Load", "TD_Weighted_Load",
+            "Effort_Weighted_Load", "Performance_Weighted_Load", "Frustration_Weighted_Load", "null", "WWL"};
     String baseDir = Environment.getExternalStorageDirectory().getAbsolutePath();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
     public String fileName;
@@ -67,8 +69,7 @@ public class Processing extends ActionBarActivity {
         //    System.out.println(answers_all[i]+", "+values_all[i]);
         //}
 
-        //initializeVariables();
-
+        initializeVariables();
         performCal();
         genCSV();
     }
@@ -95,17 +96,34 @@ public class Processing extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     // A private method to help us initialize our variables.
     private void initializeVariables() {
+        textView_directory = (TextView) findViewById(R.id.folder_value_txt);
+        textView_file = (TextView) findViewById(R.id.file_value_txt);
     }
 
     //Fuction to create csv file
     private void genCSV() {
         String timeStmp = sdf.format(new Date());
-        fileName = values_all[1] + "_" + values_all[3];
+        fileName = values_all[1] + "_" + values_all[6];
         fileName = fileName + "_" + timeStmp + ".csv";
         filePath = baseDir + File.separator + fileName;
         f = new File(filePath);
+
+        String values_all1[]=new String[35];
+        int j=0;
+        for(int i=0; i<35; i++){
+            if(answers_all1[i].equals("null")){
+                answers_all1[i]="";
+            }
+            else{
+                values_all1[i]=values_all[j];
+                j++;
+            }
+        }
+        textView_directory.setText(filePath);
+        textView_file.setText(fileName);
         CSVWriter writer;
         FileWriter mfileWriter;
 
@@ -118,7 +136,7 @@ public class Processing extends ActionBarActivity {
                 writer = new CSVWriter(new FileWriter(filePath));
             }
             writer.writeNext(answers_all1);
-            writer.writeNext(values_all);
+            writer.writeNext(values_all1);
             writer.close();
             Toast.makeText(this,"File Created",Toast.LENGTH_SHORT).show();
         }catch (IOException e){
@@ -154,25 +172,26 @@ public class Processing extends ActionBarActivity {
             count[i] = count[i]/15;
         }
 
-        /*count[6] = count[0] * Float.parseFloat(values_all[12]);
+        count[6] = count[0] * Float.parseFloat(values_all[12]);
         count[7] = count[1] * Float.parseFloat(values_all[13]);
         count[8] = count[2] * Float.parseFloat(values_all[14]);
         count[9] = count[3] * Float.parseFloat(values_all[15]);
         count[10] = count[4] * Float.parseFloat(values_all[16]);
-        count[11] = count[5] * Float.parseFloat(values_all[17]);*/
+        count[11] = count[5] * Float.parseFloat(values_all[17]);
 
-        count[6] = count[0] * Float.parseFloat("40");
+        /*count[6] = count[0] * Float.parseFloat("40");
         count[7] = count[1] * Float.parseFloat("30");
         count[8] = count[2] * Float.parseFloat("45");
         count[9] = count[3] * Float.parseFloat("20");
         count[10] = count[4] * Float.parseFloat("80");
-        count[11] = count[5] * Float.parseFloat("75");
+        count[11] = count[5] * Float.parseFloat("75");*/
 
         for (int i = 18 , j = 0; i < 33 && j < 12; i++, j++){
             values_all[i] = Float.toString(count[j]);
         }
-        values_all[30] = "";
+        values_all[30] = Float.toString(count[6]+count[7]+count[8]+count[9]+count[10]+count[11]);
         values_all[31] = "";
         values_all[32] = "";
     }
+
 }

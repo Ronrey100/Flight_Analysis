@@ -80,7 +80,8 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_0.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
+                           System.out.println(values_all[i]);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -101,7 +102,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_1.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -122,7 +123,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_2.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -143,7 +144,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_3.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -164,7 +165,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_4.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -185,7 +186,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_5.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -206,7 +207,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_6.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -227,7 +228,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_7.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -248,7 +249,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_8.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -269,7 +270,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_9.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -290,7 +291,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_10.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -311,7 +312,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_11.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -332,7 +333,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_12.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -353,7 +354,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_13.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -374,7 +375,7 @@ public class Questions_6 extends ActionBarActivity{
                     Intent myIntent = new Intent(Questions_6.this, Questions_2_14.class);
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
-                            values_all[i]=String.valueOf(textView.getText());
+                            values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
                         }
                     }
                     questions_mix_2[inc]="1";
