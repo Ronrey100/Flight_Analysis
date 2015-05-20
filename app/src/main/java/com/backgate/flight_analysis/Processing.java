@@ -20,12 +20,16 @@ public class Processing extends ActionBarActivity {
 
     public String answers_all[]=new String[33];
     public String values_all[]=new String[33];
+    public String[] answers_all1 = {"Subject_ID", "First_Name", "Middle_Name", "Last_Name", "Organisation", "Task_ID", "Task_Name", "Age", "Gender", "Height", "Weight", "Flying_Exp",
+            "MD_Rating", "PD_Rating", "TD_Rating", "Performance_Rating", "Effort_Rating", "Frustration_Rating",
+            "MD_Wt", "PD_Wt", "TD_Wt", "Effort_Wt", "Performance_Wt", "Frustration_Wt", "MD_Weighted_Load", "PD_Weighted_Load", "TD_Weighted_Load",
+            "Effort_Weighted_Load", "Performance_Weighted_Load", "Frustration_Weighted_Load", "WWL"};
     String baseDir = Environment.getExternalStorageDirectory().getAbsolutePath();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
     public String fileName;
     public String filePath;
     public File f;
-    public int count[] = {0,0,0,0,0,0,0,0,0,0,0,0};
+    public float count[] = {0,0,0,0,0,0,0,0,0,0,0,0};
 
 
 
@@ -113,7 +117,7 @@ public class Processing extends ActionBarActivity {
             else{
                 writer = new CSVWriter(new FileWriter(filePath));
             }
-            writer.writeNext(answers_all);
+            writer.writeNext(answers_all1);
             writer.writeNext(values_all);
             writer.close();
             Toast.makeText(this,"File Created",Toast.LENGTH_SHORT).show();
@@ -146,15 +150,25 @@ public class Processing extends ActionBarActivity {
             }
         }
 
-        count[6] = (count[0]/15) * Integer.parseInt(values_all[12]);
+        /*count[6] = (count[0]/15) * Integer.parseInt(values_all[12]);
         count[7] = (count[1]/15) * Integer.parseInt(values_all[13]);
         count[8] = (count[2]/15) * Integer.parseInt(values_all[14]);
         count[9] = (count[3]/15) * Integer.parseInt(values_all[15]);
         count[10] = (count[4]/15) * Integer.parseInt(values_all[16]);
-        count[11] = (count[5]/15) * Integer.parseInt(values_all[17]);
+        count[11] = (count[5]/15) * Integer.parseInt(values_all[17]);*/
+
+        count[6] = (count[0]/15) * Float.parseFloat("40");
+        count[7] = (count[1]/15) * Float.parseFloat("30");
+        count[8] = (count[2]/15) * Float.parseFloat("45");
+        count[9] = (count[3]/15) * Float.parseFloat("20");
+        count[10] = (count[4]/15) * Float.parseFloat("80");
+        count[11] = (count[5]/15) * Float.parseFloat("75");
 
         for (int i = 18 , j = 0; i < 33 && j < 12; i++, j++){
-            values_all[i] = Integer.toString(count[j]);
+            values_all[i] = Float.toString(count[j]);
         }
+        values_all[30] = "";
+        values_all[31] = "";
+        values_all[32] = "";
     }
 }
