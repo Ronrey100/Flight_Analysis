@@ -41,33 +41,6 @@ public class Processing extends ActionBarActivity {
         setContentView(R.layout.processing);
         answers_all = getIntent().getStringArrayExtra("string-array-ans-text");
         values_all = getIntent().getStringArrayExtra("string-array-ans-vals");
-        /*String timeStmp = sdf.format(new Date());
-        String fileName = "test"+timeStmp+".csv";
-        String filePath = baseDir + File.separator + fileName;
-        File f = new File(filePath);
-        CSVWriter writer;
-        FileWriter mfileWriter;
-
-        try{
-            if(f.exists() && !f.isDirectory()){
-                mfileWriter = new FileWriter(filePath, true);
-                writer = new CSVWriter(mfileWriter);
-            }
-            else{
-                writer = new CSVWriter(new FileWriter(filePath));
-            }
-            writer.writeNext(answers_all);
-            writer.writeNext(values_all);
-            writer.close();
-            Toast.makeText(this,"File Created",Toast.LENGTH_SHORT).show();
-        }catch (IOException e){
-            //e.printStackTrace();
-            Toast.makeText(this,"File Failed", Toast.LENGTH_SHORT).show();
-        }*/
-
-        //for(int i=0; i<30; i++){
-        //    System.out.println(answers_all[i]+", "+values_all[i]);
-        //}
 
         initializeVariables();
         performCal();
@@ -108,7 +81,12 @@ public class Processing extends ActionBarActivity {
         String timeStmp = sdf.format(new Date());
         fileName = values_all[1] + "_" + values_all[6];
         fileName = fileName + "_" + timeStmp + ".csv";
-        filePath = baseDir + File.separator + fileName;
+        filePath = baseDir + File.separator + "Flight_Analysis";
+        File dir = new File(filePath);
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
+        filePath = filePath + File.separator + fileName;
         f = new File(filePath);
 
         String values_all1[]=new String[35];
@@ -122,8 +100,6 @@ public class Processing extends ActionBarActivity {
                 j++;
             }
         }
-        textView_directory.setText(filePath);
-        textView_file.setText(fileName);
         CSVWriter writer;
         FileWriter mfileWriter;
 
@@ -138,7 +114,9 @@ public class Processing extends ActionBarActivity {
             writer.writeNext(answers_all1);
             writer.writeNext(values_all1);
             writer.close();
-            Toast.makeText(this,"File Created",Toast.LENGTH_SHORT).show();
+            textView_directory.setText(filePath);
+            textView_file.setText(fileName);
+
         }catch (IOException e){
             //e.printStackTrace();
             Toast.makeText(this,"File Failed", Toast.LENGTH_SHORT).show();
@@ -178,13 +156,6 @@ public class Processing extends ActionBarActivity {
         count[9] = count[3] * Float.parseFloat(values_all[15]);
         count[10] = count[4] * Float.parseFloat(values_all[16]);
         count[11] = count[5] * Float.parseFloat(values_all[17]);
-
-        /*count[6] = count[0] * Float.parseFloat("40");
-        count[7] = count[1] * Float.parseFloat("30");
-        count[8] = count[2] * Float.parseFloat("45");
-        count[9] = count[3] * Float.parseFloat("20");
-        count[10] = count[4] * Float.parseFloat("80");
-        count[11] = count[5] * Float.parseFloat("75");*/
 
         for (int i = 18 , j = 0; i < 33 && j < 12; i++, j++){
             values_all[i] = Float.toString(count[j]);
