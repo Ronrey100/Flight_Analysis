@@ -93,6 +93,8 @@ public class Processing extends ActionBarActivity {
             dir.mkdirs();
         }
         filePath = filePath + File.separator + fileName;
+
+
         f = new File(filePath);
 
         String values_all1[]=new String[35];
