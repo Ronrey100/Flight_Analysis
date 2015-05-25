@@ -1,5 +1,6 @@
 package com.backgate.flight_analysis;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
@@ -63,6 +64,11 @@ public class Processing extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+        if (id == R.id.action_mail) {
+            Intent myIntent = new Intent(Processing.this, Email_Options.class);
+            Processing.this.startActivity(myIntent);
             return true;
         }
 

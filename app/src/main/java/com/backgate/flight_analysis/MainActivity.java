@@ -193,6 +193,12 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
 
+        if (id == R.id.action_mail) {
+            Intent myIntent = new Intent(MainActivity.this, Email_Options.class);
+            MainActivity.this.startActivity(myIntent);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
