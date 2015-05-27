@@ -1,17 +1,24 @@
 package com.backgate.flight_analysis;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,39 +26,93 @@ import java.util.List;
 public class Email_Options extends ActionBarActivity {
 
     String baseDir = Environment.getExternalStorageDirectory().getAbsolutePath();
-    public String filePath;
+    public String filePath = baseDir + File.separator + "Flight_Analysis";;
     public TextView textView_attach;
+    private CheckBox[] file_names = new CheckBox[1000];
+    private EditText email_add;
+    private Button email_sub_but;
+    private List<File> files = getListFiles(new File(filePath));
+    private static ArrayList<String> checked_file = new ArrayList<String>();
+    private int x = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.email_opt);
         initializeVariables();
-        filePath = baseDir + File.separator + "Flight_Analysis";
-
-        List<File> files = getListFiles(new File(filePath));
 
         LinearLayout email_table = (LinearLayout) findViewById(R.id.rel_lay_email);
         //RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         //params.addRule(RelativeLayout.BELOW,R.id.attach_txt);
         for (int i = 0; i < files.size(); i++) {
-            CheckBox file_names = new CheckBox(getApplicationContext());
+            file_names[i] = new CheckBox(getApplicationContext());
             //file_names.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
             //file_names.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.BELOW, R.id.attach_txt));
-            file_names.setId(i);
-            file_names.setTextColor(getResources().getColor(R.color.black));
-            file_names.setText(files.get(i).getName());
-            email_table.addView(file_names);
+            file_names[i].setId(i);
+            file_names[i].setTextColor(getResources().getColor(R.color.black));
+            file_names[i].setText(files.get(i).getName());
+            email_table.addView(file_names[i]);
             //params.addRule(RelativeLayout.BELOW,file_names.getId());
         }
 
         //LinearLayout button_lay = (LinearLayout)findViewById(R.id.buttonlayout);
         LinearLayout.LayoutParams button_lay = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         button_lay.gravity = Gravity.CENTER_HORIZONTAL;
-        Button email_sub_but = new Button(this);
+        email_sub_but = new Button(this);
         email_sub_but.setText("Send email");
         email_table.addView(email_sub_but, button_lay);
+
+        for (int i = 0; i < files.size(); i++ ){
+            final int j = i;
+            file_names[j].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    try{
+                        if (file_names[j].isChecked()) {
+                            checked_file.add("sdcard/Flight_Analysis/" + file_names[j].getText().toString());
+                        }
+                        if (!file_names[j].isChecked()){
+                            checked_file.remove("sdcard/Flight_Analysis/" + file_names[j].getText().toString().trim() );
+                        }
+                    }catch (Exception e){
+                        System.out.print(e);
+                    }
+
+                }
+            });
+        }
+
+
+        addListenerOnButton(email_sub_but);
     }
+
+    private void addListenerOnButton(Button email_btn) {
+        email_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ArrayList<Uri> uris = new ArrayList<Uri>();
+                for (String files_check : checked_file){
+                    File fileIn = new File(files_check.trim());
+                    Uri u = Uri.fromFile(fileIn);
+                    uris.add(u);
+                }
+
+                try{
+                    Intent emailIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
+                    emailIntent.setType("multipart/mixed");
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Flight Analysis Reports");
+                    emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{email_add.getText().toString()});
+                    emailIntent.putExtra(Intent.EXTRA_TEXT,"PFA");
+                    emailIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM,uris);
+                    startActivity(emailIntent);
+                }catch (Exception e){
+                    System.out.print(e);
+                }
+            }
+        });
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -77,9 +138,10 @@ public class Email_Options extends ActionBarActivity {
 
     // A private method to help us initialize our variables.
     private void initializeVariables() {
+        email_add = (EditText) findViewById(R.id.email_value);
     }
 
-    private List<File> getListFiles(File parentDir) {
+    public List<File> getListFiles(File parentDir) {
         ArrayList<File> inFiles = new ArrayList<File>();
         File[] files = parentDir.listFiles();
         for (File file : files) {
