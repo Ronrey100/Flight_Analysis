@@ -75,6 +75,7 @@ public class Questions_1 extends ActionBarActivity{
                 myIntent.putExtra("string-array-ans-text", answers_all);
                 myIntent.putExtra("string-array-ans-vals", values_all);
                 Questions_1.this.startActivity(myIntent);
+                finish();
             }
         });
 
@@ -100,9 +101,9 @@ public class Questions_1 extends ActionBarActivity{
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_exit) {
+            int process_id= android.os.Process.myPid();
+            android.os.Process.killProcess(process_id);
         }
 
         return super.onOptionsItemSelected(item);

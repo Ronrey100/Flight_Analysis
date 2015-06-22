@@ -385,6 +385,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -412,8 +413,11 @@ public class Questions_6 extends ActionBarActivity{
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_exit) {
+            int process_id= android.os.Process.myPid();
+            for(int i=0; i<25; i++) {
+                android.os.Process.killProcess(process_id);
+            }
         }
 
         return super.onOptionsItemSelected(item);

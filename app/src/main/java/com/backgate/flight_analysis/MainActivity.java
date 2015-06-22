@@ -168,6 +168,7 @@ public class MainActivity extends ActionBarActivity {
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     MainActivity.this.startActivity(myIntent);
+                    finish();
                 }
             }
         });
@@ -177,7 +178,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main_2, menu);
         return true;
     }
 
@@ -188,15 +189,16 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         if (id == R.id.action_mail) {
             Intent myIntent = new Intent(MainActivity.this, Email_Options.class);
             MainActivity.this.startActivity(myIntent);
+            finish();
             return true;
+        }
+
+        if (id == R.id.action_exit) {
+            int process_id= android.os.Process.myPid();
+            android.os.Process.killProcess(process_id);
         }
 
         return super.onOptionsItemSelected(item);

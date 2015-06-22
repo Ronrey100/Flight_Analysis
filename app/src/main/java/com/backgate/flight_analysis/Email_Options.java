@@ -17,9 +17,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.opencsv.CSVWriter;
+
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -31,6 +36,7 @@ public class Email_Options extends ActionBarActivity {
     private CheckBox[] file_names = new CheckBox[1000];
     private EditText email_add;
     private Button email_sub_but;
+    public String arc_filePath;
     private List<File> files = getListFiles(new File(filePath));
     private static ArrayList<String> checked_file = new ArrayList<String>();
     private int x = 0;
@@ -106,6 +112,7 @@ public class Email_Options extends ActionBarActivity {
                     emailIntent.putExtra(Intent.EXTRA_TEXT,"PFA");
                     emailIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM,uris);
                     startActivity(emailIntent);
+                    genCSV();
                 }catch (Exception e){
                     System.out.print(e);
                 }
@@ -128,9 +135,9 @@ public class Email_Options extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_exit) {
+            int process_id= android.os.Process.myPid();
+            android.os.Process.killProcess(process_id);
         }
 
         return super.onOptionsItemSelected(item);
@@ -139,6 +146,15 @@ public class Email_Options extends ActionBarActivity {
     // A private method to help us initialize our variables.
     private void initializeVariables() {
         email_add = (EditText) findViewById(R.id.email_value);
+    }
+
+    //Fuction to create csv file
+    private void genCSV() {
+        arc_filePath = baseDir + File.separator + "Flight_Analysis"+File.separator+"ARCHIVE";
+        File dir = new File(arc_filePath);
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
     }
 
     public List<File> getListFiles(File parentDir) {

@@ -51,7 +51,7 @@ public class Processing extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main_2, menu);
         return true;
     }
 
@@ -63,13 +63,15 @@ public class Processing extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
         if (id == R.id.action_mail) {
             Intent myIntent = new Intent(Processing.this, Email_Options.class);
             Processing.this.startActivity(myIntent);
-            return true;
+            finish();
+        }
+
+        if (id == R.id.action_exit) {
+            int process_id= android.os.Process.myPid();
+            android.os.Process.killProcess(process_id);
         }
 
         return super.onOptionsItemSelected(item);
