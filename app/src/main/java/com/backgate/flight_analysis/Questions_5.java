@@ -62,6 +62,8 @@ public class Questions_5 extends ActionBarActivity{
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(Questions_5.this, Questions_6.class);
+                //myIntent.putExtra("EXIT", true);
+                //Intent myIntent = new Intent(Questions_5.this, Questions_6.class);
                 for(int i=0; i<33; i++){
                     if("effort".equals(answers_all[i])){
                         values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
@@ -74,7 +76,7 @@ public class Questions_5 extends ActionBarActivity{
                 myIntent.putExtra("string-array-ans-text", answers_all);
                 myIntent.putExtra("string-array-ans-vals", values_all);
                 Questions_5.this.startActivity(myIntent);
-                finish();
+                //finish();
             }
         });
 
@@ -86,7 +88,7 @@ public class Questions_5 extends ActionBarActivity{
         });
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -107,7 +109,7 @@ public class Questions_5 extends ActionBarActivity{
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     // A private method to help us initialize our variables.
     private void initializeVariables() {
