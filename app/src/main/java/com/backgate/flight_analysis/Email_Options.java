@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -133,7 +134,7 @@ public class Email_Options extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main_4, menu);
         return true;
     }
 
@@ -149,7 +150,27 @@ public class Email_Options extends ActionBarActivity {
             android.os.Process.killProcess(process_id);
         }
 
+        if (id == R.id.action_main) {
+            Intent myIntent = new Intent(Email_Options.this, MainActivity.class);
+            Email_Options.this.startActivity(myIntent);
+            finish();
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) { //Back key pressed
+            //Things to Do
+            Toast.makeText(getApplicationContext(), "Returning back to the Home Page.",
+                    Toast.LENGTH_LONG).show();
+            Intent myIntent = new Intent(Email_Options.this, MainActivity.class);
+            Email_Options.this.startActivity(myIntent);
+            finish();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     // A private method to help us initialize our variables.
