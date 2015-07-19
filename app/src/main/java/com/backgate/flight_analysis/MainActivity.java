@@ -168,7 +168,7 @@ public class MainActivity extends ActionBarActivity {
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     MainActivity.this.startActivity(myIntent);
-                    finish();
+                    //finish();
                 }
             }
         });

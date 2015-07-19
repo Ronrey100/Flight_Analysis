@@ -16,6 +16,8 @@ public class Questions_4 extends ActionBarActivity{
     private SeekBar seekBar;
     private TextView textView;
     private TextView textView_Quest;
+    private TextView very_low_text;
+    private TextView very_high_text;
     private Button prev_button;
     private Button next_button;
     public String questions_mix[]=new String[15];
@@ -28,6 +30,12 @@ public class Questions_4 extends ActionBarActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.questions);
+
+        very_low_text=(TextView)findViewById(R.id.very_low_text);
+        very_low_text.setText("Perfect");
+
+        very_high_text=(TextView)findViewById(R.id.very_high_text);
+        very_high_text.setText("Failure");
 
         initializeVariables();
         questions_mix = getIntent().getStringArrayExtra("string-array");
@@ -74,7 +82,7 @@ public class Questions_4 extends ActionBarActivity{
                 myIntent.putExtra("string-array-ans-text", answers_all);
                 myIntent.putExtra("string-array-ans-vals", values_all);
                 Questions_4.this.startActivity(myIntent);
-                finish();
+                //finish();
             }
         });
 
@@ -86,7 +94,7 @@ public class Questions_4 extends ActionBarActivity{
         });
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -107,7 +115,7 @@ public class Questions_4 extends ActionBarActivity{
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     // A private method to help us initialize our variables.
     private void initializeVariables() {

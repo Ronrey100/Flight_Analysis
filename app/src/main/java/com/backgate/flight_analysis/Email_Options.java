@@ -23,7 +23,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -105,11 +107,18 @@ public class Email_Options extends ActionBarActivity {
                 }
 
                 try{
+
+                    Calendar c = Calendar.getInstance();
+                    //System.out.println("Current time => " + c.getTime());
+
+                    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+                    String formattedDate = df.format(c.getTime());
+
                     Intent emailIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
                     emailIntent.setType("multipart/mixed");
-                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Flight Analysis Reports");
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Flight Analysis Reports for date "+formattedDate);
                     emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{email_add.getText().toString()});
-                    emailIntent.putExtra(Intent.EXTRA_TEXT,"PFA");
+                    emailIntent.putExtra(Intent.EXTRA_TEXT,"Please find the reports attached for date "+formattedDate);
                     emailIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM,uris);
                     startActivity(emailIntent);
                     genCSV();

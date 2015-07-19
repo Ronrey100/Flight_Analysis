@@ -75,7 +75,7 @@ public class Questions_1 extends ActionBarActivity{
                 myIntent.putExtra("string-array-ans-text", answers_all);
                 myIntent.putExtra("string-array-ans-vals", values_all);
                 Questions_1.this.startActivity(myIntent);
-                finish();
+                //finish();
             }
         });
 
@@ -87,7 +87,7 @@ public class Questions_1 extends ActionBarActivity{
         });
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -107,7 +107,7 @@ public class Questions_1 extends ActionBarActivity{
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     // A private method to help us initialize our variables.
     private void initializeVariables() {
