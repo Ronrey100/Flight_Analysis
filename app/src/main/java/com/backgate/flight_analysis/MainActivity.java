@@ -2,6 +2,7 @@ package com.backgate.flight_analysis;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.Random;
 
 
@@ -39,6 +41,8 @@ public class MainActivity extends ActionBarActivity {
             "eff_phy", "perf_temp", "ment_eff", "perf_ment", "eff_perf", "frus_ment"};
     public String values_all[]=new String[33];
     Random myRandom = new Random();
+    String baseDir = Environment.getExternalStorageDirectory().getAbsolutePath();
+    public String filePath = baseDir + File.separator + "Flight_Analysis";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,49 +87,41 @@ public class MainActivity extends ActionBarActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(String.valueOf(subject_id_name.getText())==null || String.valueOf(subject_id_name.getText()).trim().equals("")){
+                if (String.valueOf(subject_id_name.getText()) == null || String.valueOf(subject_id_name.getText()).trim().equals("")) {
                     Toast.makeText(getApplicationContext(), "Please enter the Subject ID.",
                             Toast.LENGTH_LONG).show();
                     subject_id_name.requestFocus();
-                }
-                else if(String.valueOf(first_name.getText())==null || String.valueOf(first_name.getText()).trim().equals("")){
+                } else if (String.valueOf(first_name.getText()) == null || String.valueOf(first_name.getText()).trim().equals("")) {
                     Toast.makeText(getApplicationContext(), "Please enter your First Name.",
                             Toast.LENGTH_LONG).show();
                     first_name.requestFocus();
-                }
-                else if(String.valueOf(last_name.getText())==null || String.valueOf(last_name.getText()).trim().equals("")){
+                } else if (String.valueOf(last_name.getText()) == null || String.valueOf(last_name.getText()).trim().equals("")) {
                     Toast.makeText(getApplicationContext(), "Please enter your Last Name.",
                             Toast.LENGTH_LONG).show();
                     last_name.requestFocus();
-                }
-                else if((String.valueOf(task_id_name.getText())==null && String.valueOf(task_name.getText())==null)
+                } else if ((String.valueOf(task_id_name.getText()) == null && String.valueOf(task_name.getText()) == null)
                         || (String.valueOf(task_id_name.getText()).trim().equals("") && String.valueOf(task_name.getText()).trim().equals(""))
-                        || (String.valueOf(task_id_name.getText()).trim().equals("") && String.valueOf(task_name.getText())==null)
-                        || (String.valueOf(task_id_name.getText())==null && String.valueOf(task_name.getText()).trim().equals(""))){
+                        || (String.valueOf(task_id_name.getText()).trim().equals("") && String.valueOf(task_name.getText()) == null)
+                        || (String.valueOf(task_id_name.getText()) == null && String.valueOf(task_name.getText()).trim().equals(""))) {
                     Toast.makeText(getApplicationContext(), "Please enter either Task ID or Task Name.",
                             Toast.LENGTH_LONG).show();
                     task_id_name.requestFocus();
-                }
-                else if(String.valueOf(age_name.getText())==null || String.valueOf(age_name.getText()).trim().equals("")){
+                } else if (String.valueOf(age_name.getText()) == null || String.valueOf(age_name.getText()).trim().equals("")) {
                     Toast.makeText(getApplicationContext(), "Please enter your Age.",
                             Toast.LENGTH_LONG).show();
                     age_name.requestFocus();
-                }
-                else if(!button1.isChecked() && !button2.isChecked()){
+                } else if (!button1.isChecked() && !button2.isChecked()) {
                     Toast.makeText(getApplicationContext(), "Please select your gender.",
                             Toast.LENGTH_LONG).show();
-                }
-                else if(String.valueOf(height_name.getText())==null || String.valueOf(height_name.getText()).trim().equals("")){
+                } else if (String.valueOf(height_name.getText()) == null || String.valueOf(height_name.getText()).trim().equals("")) {
                     Toast.makeText(getApplicationContext(), "Please enter your Height.",
                             Toast.LENGTH_LONG).show();
                     height_name.requestFocus();
-                }
-                else if(String.valueOf(weight_name.getText())==null || String.valueOf(weight_name.getText()).trim().equals("")){
+                } else if (String.valueOf(weight_name.getText()) == null || String.valueOf(weight_name.getText()).trim().equals("")) {
                     Toast.makeText(getApplicationContext(), "Please enter your Weight.",
                             Toast.LENGTH_LONG).show();
                     weight_name.requestFocus();
-                }
-                else {
+                } else {
                     Intent myIntent = new Intent(MainActivity.this, Questions_1.class);
                     for (int i = 0; i < 33; i++) {
                         if ("first_name".equals(answers_all[i])) {
@@ -186,6 +182,14 @@ public class MainActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main_2, menu);
+        return true;
+    }
+
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        File dir = new File(filePath);
+        if (!dir.exists()){
+            menu.getItem(0).setEnabled(false);
+        }
         return true;
     }
 

@@ -34,8 +34,8 @@ import java.util.List;
 public class Email_Options extends ActionBarActivity {
 
     String baseDir = Environment.getExternalStorageDirectory().getAbsolutePath();
-    public String filePath = baseDir + File.separator + "Flight_Analysis";;
-    public TextView textView_attach;
+    public String filePath = baseDir + File.separator + "Flight_Analysis";
+    //public TextView textView_attach;
     private CheckBox[] file_names = new CheckBox[1000];
     private EditText email_add;
     private Button email_sub_but;
