@@ -50,12 +50,12 @@ public class Questions_2_7 extends ActionBarActivity{
             if("-1".equals(questions_mix_2[i])){
                 question_val= questions_mix[i];
                 inc= i;
-                System.out.println("You are at question_2_7 "+questions_mix[i]+", "+i);
+                //System.out.println("You are at question_2_7 "+questions_mix[i]+", "+i);
                 break;
             }
         }
 
-        System.out.println("You are at question_2_7 "+question_val+", "+inc);
+        //System.out.println("You are at question_2_7 "+question_val+", "+inc);
         
         addListenerOnButton();
     }

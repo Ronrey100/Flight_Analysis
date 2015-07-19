@@ -81,7 +81,7 @@ public class Email_Options extends ActionBarActivity {
                             checked_file.remove("sdcard/Flight_Analysis/" + file_names[j].getText().toString().trim() );
                         }
                     }catch (Exception e){
-                        System.out.print(e);
+                        //System.out.print(e);
                     }
 
                 }
@@ -114,7 +114,7 @@ public class Email_Options extends ActionBarActivity {
                     startActivity(emailIntent);
                     genCSV();
                 }catch (Exception e){
-                    System.out.print(e);
+                    //System.out.print(e);
                 }
             }
         });

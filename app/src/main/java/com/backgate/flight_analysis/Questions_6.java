@@ -42,12 +42,12 @@ public class Questions_6 extends ActionBarActivity{
             if("-1".equals(questions_mix_2[i])){
                 question_val= questions_mix[i];
                 inc= i;
-                System.out.println("You are at question 6 "+questions_mix[i]+", "+i);
+                //System.out.println("You are at question 6 "+questions_mix[i]+", "+i);
                 break;
             }
         }
 
-        System.out.println("You are at question 6 "+question_val+", "+inc);
+        //System.out.println("You are at question 6 "+question_val+", "+inc);
 
         textView_Quest.setText("How insecure, discouraged, irritated, stressed and annoyed were you?");
         textView.setText(seekBar.getProgress() + "%");
@@ -81,7 +81,7 @@ public class Questions_6 extends ActionBarActivity{
                     for(int i=0; i<33; i++){
                         if("frustration".equals(answers_all[i])){
                             values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
-                           System.out.println(values_all[i]);
+                           //System.out.println(values_all[i]);
                         }
                     }
                     questions_mix_2[inc]="1";
@@ -91,6 +91,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -112,6 +113,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -133,6 +135,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -154,6 +157,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -175,6 +179,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -196,6 +201,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -217,6 +223,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -238,6 +245,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -259,6 +267,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -280,6 +289,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -301,6 +311,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -322,6 +333,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -343,6 +355,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
@@ -364,6 +377,7 @@ public class Questions_6 extends ActionBarActivity{
                     myIntent.putExtra("string-array-ans-text", answers_all);
                     myIntent.putExtra("string-array-ans-vals", values_all);
                     Questions_6.this.startActivity(myIntent);
+                    finish();
                 }
             });
         }
