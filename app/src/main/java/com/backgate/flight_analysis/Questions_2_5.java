@@ -50,12 +50,12 @@ public class Questions_2_5 extends ActionBarActivity{
             if("-1".equals(questions_mix_2[i])){
                 question_val= questions_mix[i];
                 inc= i;
-                System.out.println("You are at question_2_5 "+questions_mix[i]+", "+i);
+                //System.out.println("You are at question_2_5 "+questions_mix[i]+", "+i);
                 break;
             }
         }
 
-        System.out.println("You are at question_2_5 "+question_val+", "+inc);
+        //System.out.println("You are at question_2_5 "+question_val+", "+inc);
         
         addListenerOnButton();
     }
@@ -87,7 +87,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         }
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -121,7 +121,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -155,7 +155,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -189,7 +189,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -223,7 +223,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -257,7 +257,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -291,7 +291,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -325,7 +325,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -359,7 +359,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -393,7 +393,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -427,7 +427,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -461,7 +461,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -495,7 +495,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -529,7 +529,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
@@ -563,7 +563,7 @@ public class Questions_2_5 extends ActionBarActivity{
                         myIntent.putExtra("string-array-2", questions_mix_2);
                         myIntent.putExtra("string-array-ans-text", answers_all);
                         myIntent.putExtra("string-array-ans-vals", values_all);
-                        Questions_2_5.this.startActivity(myIntent);
+                        Questions_2_5.this.startActivity(myIntent);finish();
                     }
                 }
             });
