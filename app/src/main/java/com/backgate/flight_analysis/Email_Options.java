@@ -34,7 +34,7 @@ import java.util.List;
 public class Email_Options extends ActionBarActivity {
 
     String baseDir = Environment.getExternalStorageDirectory().getAbsolutePath();
-    public String filePath = baseDir + File.separator + "Flight_Analysis";
+    public String filePath = baseDir + File.separator + "Task Load Analysis";
     //public TextView textView_attach;
     private CheckBox[] file_names = new CheckBox[1000];
     private EditText email_add;
@@ -78,10 +78,10 @@ public class Email_Options extends ActionBarActivity {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     try{
                         if (file_names[j].isChecked()) {
-                            checked_file.add("sdcard/Flight_Analysis/" + file_names[j].getText().toString());
+                            checked_file.add("sdcard/Task Load Analysis/" + file_names[j].getText().toString());
                         }
                         if (!file_names[j].isChecked()){
-                            checked_file.remove("sdcard/Flight_Analysis/" + file_names[j].getText().toString().trim() );
+                            checked_file.remove("sdcard/Task Load Analysis/" + file_names[j].getText().toString().trim() );
                         }
                     }catch (Exception e){
                         //System.out.print(e);
@@ -180,7 +180,7 @@ public class Email_Options extends ActionBarActivity {
 
     //Fuction to create csv file
     private void genCSV() {
-        arc_filePath = baseDir + File.separator + "Flight_Analysis"+File.separator+"ARCHIVE";
+        arc_filePath = baseDir + File.separator + "Task Load Analysis"+File.separator+"ARCHIVE";
         File dir = new File(arc_filePath);
         if(!dir.exists()){
             dir.mkdirs();

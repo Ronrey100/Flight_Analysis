@@ -36,11 +36,16 @@ public class Questions_5 extends ActionBarActivity{
         answers_all = getIntent().getStringArrayExtra("string-array-ans-text");
         values_all = getIntent().getStringArrayExtra("string-array-ans-vals");
         textView_Quest.setText("How hard did you have to work to accomplish your level of performance?");
-        textView.setText(seekBar.getProgress() + "%");
+        seekBar.setProgress(0);
+        seekBar.incrementProgressBy(5);
+        seekBar.setMax(100);
+        textView.setText(seekBar.getProgress()+"%");
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progress = 0;
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
+                progresValue = progresValue / 5;
+                progresValue = progresValue * 5;
                 progress = progresValue;
                 textView.setText(progresValue+"%");
             }

@@ -31,52 +31,47 @@
                     android:id="@+id/option_1"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:background="@drawable/selectors"
                     android:minWidth="20dp"
                     android:minHeight="20dp"/>
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/option_1_text"
-                    android:layout_below="@+id/option_1"
-                    android:paddingLeft="32dp"/>
                 <RadioButton
                     android:id="@+id/option_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minWidth="20dp"
-                    android:minHeight="20dp"/>
-                <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/option_2_text"
-                    android:layout_below="@+id/option_2"
-                    android:paddingLeft="32dp"/>
+                    android:clickable="true"
+                    android:background="@drawable/selectors"
+                    android:minWidth="20dp"
+                    android:minHeight="20dp"/>
             </RadioGroup>
             <TextView android:text=" " android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/blank_text_3"
+                android:id="@+id/blank_text_3_0"
                 android:layout_below="@+id/radioOptionGroup"
                 android:textSize="20dp"/>
-            <Button
-                android:layout_width="wrap_content"
+            <TextView android:text=" " android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="Prev"
-                android:id="@+id/prev_button"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/blank_text_3"
-                android:layout_alignParentLeft="true"/>
-            <Button
-                android:layout_width="wrap_content"
+                android:id="@+id/blank_text_3"
+                android:layout_below="@+id/blank_text_3_0"
+                android:textSize="20dp"/>
+            <TextView
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="Next"
-                android:id="@+id/next_button"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
+                android:id="@+id/option_1_text"
                 android:layout_below="@+id/blank_text_3"
-                android:layout_alignParentRight="true"/>
+                android:paddingLeft="32dp"/>
+            <TextView android:text=" " android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/blank_text_4"
+                android:layout_below="@+id/option_1_text"
+                android:textSize="20dp"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/option_2_text"
+                android:layout_below="@+id/blank_text_4"
+                android:paddingLeft="32dp"/>
+
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

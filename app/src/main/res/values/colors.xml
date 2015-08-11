@@ -19,4 +19,6 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="cardview_initial_blue">#0266C8</color>
+    <drawable name="option_on">#A4C739</drawable>
+    <drawable name="option_off">#FFFFFF</drawable>
 </resources>

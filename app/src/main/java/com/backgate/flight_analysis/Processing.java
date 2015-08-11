@@ -44,6 +44,9 @@ public class Processing extends ActionBarActivity {
         answers_all = getIntent().getStringArrayExtra("string-array-ans-text");
         values_all = getIntent().getStringArrayExtra("string-array-ans-vals");
 
+        Toast.makeText(getApplicationContext(), "Please press the back button to return to Home Page.",
+                Toast.LENGTH_LONG).show();
+
         initializeVariables();
         performCal();
         genCSV();
@@ -109,7 +112,7 @@ public class Processing extends ActionBarActivity {
         String timeStmp = sdf.format(new Date());
         fileName = values_all[1] + "_" + values_all[6];
         fileName = fileName + "_" + timeStmp + ".csv";
-        filePath = baseDir + File.separator + "Flight_Analysis";
+        filePath = baseDir + File.separator + "Task Load Analysis";
         File dir = new File(filePath);
         if(!dir.exists()){
             dir.mkdirs();
@@ -149,7 +152,7 @@ public class Processing extends ActionBarActivity {
 
         }catch (IOException e){
             //e.printStackTrace();
-            Toast.makeText(this,"File Failed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"File generation failed", Toast.LENGTH_SHORT).show();
         }
     }
 
