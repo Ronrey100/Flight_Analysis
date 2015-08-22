@@ -3,15 +3,16 @@ package com.backgate.flight_analysis;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Random;
 
-public class Questions_6 extends ActionBarActivity{
+
+public class Questions_6 extends ActionBarActivity {
 
     private SeekBar seekBar;
     private TextView textView;
@@ -25,6 +26,7 @@ public class Questions_6 extends ActionBarActivity{
     public int inc;
     public String answers_all[]=new String[33];
     public String values_all[]=new String[33];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +80,111 @@ public class Questions_6 extends ActionBarActivity{
     public void addListenerOnButton() {
         //Select a specific button to bundle it with the action you want
 
+        next_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<Class> activityList = new ArrayList<>();
+                activityList.add(Questions_2_0.class);
+                activityList.add(Questions_2_1.class);
+                activityList.add(Questions_2_2.class);
+                activityList.add(Questions_2_3.class);
+                activityList.add(Questions_2_4.class);
+                activityList.add(Questions_2_5.class);
+                activityList.add(Questions_2_6.class);
+                activityList.add(Questions_2_7.class);
+                activityList.add(Questions_2_8.class);
+                activityList.add(Questions_2_9.class);
+                activityList.add(Questions_2_10.class);
+                activityList.add(Questions_2_11.class);
+                activityList.add(Questions_2_12.class);
+                activityList.add(Questions_2_13.class);
+                activityList.add(Questions_2_14.class);
+
+                Random generator = new Random();
+                int number = generator.nextInt(activityList.size()) + 1;
+
+                Class activity = null;
+
+                switch (number){
+                    case 1:
+                        activity = Questions_2_0.class;
+                        activityList.remove(Questions_2_0.class);
+                        break;
+                    case 2:
+                        activity = Questions_2_1.class;
+                        activityList.remove(Questions_2_1.class);
+                        break;
+                    case 3:
+                        activity = Questions_2_2.class;
+                        activityList.remove(Questions_2_2.class);
+                        break;
+                    case 4:
+                        activity = Questions_2_3.class;
+                        activityList.remove(Questions_2_3.class);
+                        break;
+                    case 5:
+                        activity = Questions_2_4.class;
+                        activityList.remove(Questions_2_4.class);
+                        break;
+                    case 6:
+                        activity = Questions_2_5.class;
+                        activityList.remove(Questions_2_5.class);
+                        break;
+                    case 7:
+                        activity = Questions_2_6.class;
+                        activityList.remove(Questions_2_6.class);
+                        break;
+
+                    case 8:
+                        activity = Questions_2_7.class;
+                        activityList.remove(Questions_2_7.class);
+                        break;
+                    case 9:
+                        activity = Questions_2_8.class;
+                        activityList.remove(Questions_2_8.class);
+                        break;
+                    case 10:
+                        activity = Questions_2_9.class;
+                        activityList.remove(Questions_2_9.class);
+                        break;
+                    case 11:
+                        activity = Questions_2_10.class;
+                        activityList.remove(Questions_2_10.class);
+                        break;
+                    case 12:
+                        activity = Questions_2_11.class;
+                        activityList.remove(Questions_2_11.class);
+                        break;
+                    case 13:
+                        activity = Questions_2_12.class;
+                        activityList.remove(Questions_2_12.class);
+                        break;
+                    case 14:
+                        activity = Questions_2_13.class;
+                        activityList.remove(Questions_2_13.class);
+                        break;
+                    default:
+                        activity = Questions_2_14.class;
+                        activityList.remove(Questions_2_14.class);
+                        break;
+                }
+
+                Intent myIntent = new Intent(Questions_6.this, activity);
+                for (int i = 0; i < 33; i++){
+                    if ("frustration".equals(answers_all[i])){
+                        values_all[i]=String.valueOf(textView.getText()).substring(0, String.valueOf(textView.getText()).length()-1);
+                    }
+                }
+                myIntent.putExtra("string-array", questions_mix);
+                myIntent.putExtra("string-array-1", questions_mix_1);
+                myIntent.putExtra("string-array-2", questions_mix_2);
+                myIntent.putExtra("string-array-ans-text", answers_all);
+                myIntent.putExtra("string-array-ans-vals", values_all);
+                myIntent.putExtra("ACTIVITY_LIST", activityList);
+                Questions_6.this.startActivity(myIntent);
+            }
+        });
+        /*
         if(question_val.equals("0")) {
             next_button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -407,7 +514,7 @@ public class Questions_6 extends ActionBarActivity{
                     //finish();
                 }
             });
-        }
+        }*/
 
         prev_button.setOnClickListener(new View.OnClickListener() {
             @Override

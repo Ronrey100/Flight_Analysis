@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import java.io.File;
@@ -19,19 +18,9 @@ import java.util.Random;
 public class MainActivity extends ActionBarActivity {
 
     private Button button;
-    private EditText first_name;
-    private EditText middle_name;
-    private EditText last_name;
-    private EditText task_name;
-    private EditText age_name;
-    private RadioButton button1;
-    private RadioButton button2;
-    private EditText height_name;
-    private EditText weight_name;
-    private EditText flying_exp_name;
     private EditText subject_id_name;
-    private EditText organisation_name;
     private EditText task_id_name;
+    private EditText task_name;
     public String questions_mix[] = new String[15];
     public String questions_mix_1[] = new String[15];
     public String questions_mix_2[] = new String[15];
@@ -74,10 +63,6 @@ public class MainActivity extends ActionBarActivity {
             questions_mix[i] = random_value;
             questions_mix_1[i] = "Questions_2_" + random_value;
         }
-
-        /*for (int j = 0; j < 15; j++) {
-            System.out.println(questions_mix[j] + ", " + questions_mix_1[j] + ", " + questions_mix_2[j]);
-        }*/
         initializeVariables();
         addListenerOnButton();
     }
@@ -99,44 +84,13 @@ public class MainActivity extends ActionBarActivity {
                             Toast.LENGTH_LONG).show();
                     task_id_name.requestFocus();
                 } else {
-                    Intent myIntent = new Intent(MainActivity.this, Questions_1.class);
+                    Intent myIntent = new Intent(MainActivity.this, Optional_Activity.class);
                     for (int i = 0; i < 33; i++) {
-                        if ("first_name".equals(answers_all[i])) {
-                            values_all[i] = String.valueOf(first_name.getText());
-                        }
-                        if ("middle_name".equals(answers_all[i])) {
-                            values_all[i] = String.valueOf(middle_name.getText());
-                        }
-                        if ("last_name".equals(answers_all[i])) {
-                            values_all[i] = String.valueOf(last_name.getText());
-                        }
                         if ("task_performed".equals(answers_all[i])) {
                             values_all[i] = String.valueOf(task_name.getText());
                         }
-                        if ("age".equals(answers_all[i])) {
-                            values_all[i] = String.valueOf(age_name.getText());
-                        }
-                        if ("gender".equals(answers_all[i])) {
-                            if (button1.isChecked()) {
-                                values_all[i] = String.valueOf(button1.getText());
-                            } else if (button2.isChecked()) {
-                                values_all[i] = String.valueOf(button2.getText());
-                            }
-                        }
-                        if ("height".equals(answers_all[i])) {
-                            values_all[i] = String.valueOf(height_name.getText());
-                        }
-                        if ("weight".equals(answers_all[i])) {
-                            values_all[i] = String.valueOf(weight_name.getText());
-                        }
-                        if ("fly_exp".equals(answers_all[i])) {
-                            values_all[i] = String.valueOf(flying_exp_name.getText());
-                        }
                         if ("subject_id".equals(answers_all[i])) {
                             values_all[i] = String.valueOf(subject_id_name.getText());
-                        }
-                        if ("organisation".equals(answers_all[i])) {
-                            values_all[i] = String.valueOf(organisation_name.getText());
                         }
                         if ("task_id".equals(answers_all[i])) {
                             values_all[i] = String.valueOf(task_id_name.getText());
@@ -195,18 +149,8 @@ public class MainActivity extends ActionBarActivity {
     // A private method to help us initialize our variables.
     private void initializeVariables() {
         button = (Button) findViewById(R.id.next_button);
-        first_name=(EditText)findViewById(R.id.first_name_value);
-        middle_name=(EditText)findViewById(R.id.middle_name_value);
-        last_name=(EditText)findViewById(R.id.last_name_value);
         task_name=(EditText)findViewById(R.id.task_value);
-        age_name=(EditText)findViewById(R.id.age_value);
-        button1= (RadioButton)findViewById(R.id.radio_male);
-        button2= (RadioButton)findViewById(R.id.radio_female);
-        height_name=(EditText)findViewById(R.id.height_value);
-        weight_name=(EditText)findViewById(R.id.weight_value);
-        flying_exp_name=(EditText)findViewById(R.id.flying_exp_value);
         subject_id_name=(EditText)findViewById(R.id.subject_id_value);
-        organisation_name=(EditText)findViewById(R.id.org_name_value);
         task_id_name=(EditText)findViewById(R.id.task_id_value);
     }
 }

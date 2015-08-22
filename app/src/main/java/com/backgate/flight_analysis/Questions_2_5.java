@@ -4,17 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 
-public class Questions_2_5 extends ActionBarActivity{
+public class Questions_2_5 extends ActionBarActivity {
 
     String msg = "Android : ";
 
@@ -66,6 +64,9 @@ public class Questions_2_5 extends ActionBarActivity{
     public int inc=-1;
     public String answers_all[]=new String[33];
     public String values_all[]=new String[33];
+    public ArrayList<Class> activityList = new ArrayList<>();
+    public Bundle extras;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +86,7 @@ public class Questions_2_5 extends ActionBarActivity{
         String opt_text_2=this.getString(R.string.option_text_2_5);
         button2.setText("\n"+"\n"+opt_text_2+"\n"+"\n");
         textView_Option2.setText(R.string.effort);
-        button1.setOnClickListener(new View.OnClickListener() {
+        /*button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
@@ -108,16 +109,129 @@ public class Questions_2_5 extends ActionBarActivity{
                 //System.out.println("You are at question_2_5 "+questions_mix[i]+", "+i);
                 break;
             }
-        }
+        }*/
 
         //System.out.println("You are at question_2_5 "+question_val+", "+inc);
+
+        extras = getIntent().getExtras();
         
         addListenerOnButton();
     }
 
     public void addListenerOnButton() {
 
-        if(question_val.equals("-1")) {
+        button_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+
+                activityList = (ArrayList<Class>) extras.get("ACTIVITY_LIST");
+
+                Class activity = null;
+
+                if (activityList.size() == 0) {
+                    activity = Processing.class;
+                } else {
+                    Random generator = new Random();
+                    int number = generator.nextInt(activityList.size()) + 1;
+
+                    switch (number) {
+                        case 1:
+                            activity = activityList.get(0);
+                            activityList.remove(0);
+                            break;
+                        case 2:
+                            activity = activityList.get(1);
+                            activityList.remove(1);
+                            break;
+                        case 3:
+                            activity = activityList.get(2);
+                            activityList.remove(2);
+                            break;
+                        case 4:
+                            activity = activityList.get(3);
+                            activityList.remove(3);
+                            break;
+                        case 5:
+                            activity = activityList.get(4);
+                            activityList.remove(4);
+                            break;
+                        case 6:
+                            activity = activityList.get(5);
+                            activityList.remove(5);
+                            break;
+                        case 7:
+                            activity = activityList.get(6);
+                            activityList.remove(6);
+                            break;
+                        case 8:
+                            activity = activityList.get(7);
+                            activityList.remove(7);
+                            break;
+                        case 9:
+                            activity = activityList.get(8);
+                            activityList.remove(8);
+                            break;
+                        case 10:
+                            activity = activityList.get(9);
+                            activityList.remove(9);
+                            break;
+                        case 11:
+                            activity = activityList.get(10);
+                            activityList.remove(10);
+                            break;
+                        case 12:
+                            activity = activityList.get(11);
+                            activityList.remove(11);
+                            break;
+                        case 13:
+                            activity = activityList.get(12);
+                            activityList.remove(12);
+                            break;
+                        case 14:
+                            activity = activityList.get(13);
+                            activityList.remove(13);
+                            break;
+                        default:
+                            activity = activityList.get(14);
+                            activityList.remove(14);
+                            break;
+                    }
+                }
+
+                if (checkedId == button1.getId()) {
+                    for (int i = 0; i < 33; i++) {                   //Could use arraylist and use indexof()
+                        if ("frus_eff".equals(answers_all[i])) {
+                            values_all[i] = "Frustration";
+                        }
+                    }
+                } else if (checkedId == button2.getId()) {
+                    for (int i = 0; i < 33; i++) {
+                        if ("frus_eff".equals(answers_all[i])) {
+                            values_all[i] = "Effort";
+                        }
+                    }
+                }
+
+                Intent myIntent = new Intent(Questions_2_5.this, activity);
+                if(activityList.size() == 0) {
+                    myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                }
+                myIntent.putExtra("string-array", questions_mix);
+                myIntent.putExtra("string-array-1", questions_mix_1);
+                myIntent.putExtra("string-array-2", questions_mix_2);
+                myIntent.putExtra("string-array-ans-text", answers_all);
+                myIntent.putExtra("string-array-ans-vals", values_all);
+                myIntent.putExtra("ACTIVITY_LIST", activityList);
+                startActivity(myIntent);
+                button1.setChecked(false);
+                button2.setChecked(false);
+            }
+        });
+
+
+        /*if(question_val.equals("-1")) {
             button_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
             {
                 @Override
@@ -573,7 +687,7 @@ public class Questions_2_5 extends ActionBarActivity{
                     //finish();
                 }
             });
-        }
+        }*/
     }
 
     /*@Override

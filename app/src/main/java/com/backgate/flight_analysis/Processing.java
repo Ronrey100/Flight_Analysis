@@ -110,7 +110,7 @@ public class Processing extends ActionBarActivity {
     //Fuction to create csv file
     private void genCSV() {
         String timeStmp = sdf.format(new Date());
-        fileName = values_all[1] + "_" + values_all[6];
+        fileName = values_all[0] + "_" +values_all[5] + "_" + values_all[6];
         fileName = fileName + "_" + timeStmp + ".csv";
         filePath = baseDir + File.separator + "Task Load Analysis";
         File dir = new File(filePath);

@@ -23,7 +23,7 @@ public class Splash extends Activity {
         setContentView(R.layout.splashscreen);
 
         ImageView demoImage = (ImageView) findViewById(R.id.splashscreen);
-        int imagesToShow[] = { R.drawable.nasa_log0, R.drawable.nasa_log1, R.drawable.nasa_log2,R.drawable.nasa_log3,R.drawable.nasa_logo1  };
+        int imagesToShow[] = { R.drawable.nasa_log0, R.drawable.nasa_log1, R.drawable.nasa_log2, R.drawable.nasa_log3, R.drawable.nasa_logo1  };
 
         animate(demoImage, imagesToShow, 0,false);
 
