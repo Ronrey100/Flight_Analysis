@@ -29,9 +29,11 @@ public class Processing extends ActionBarActivity {
             "MD_Wt", "PD_Wt", "TD_Wt", "Effort_Wt", "Performance_Wt", "Frustration_Wt", "null", "MD_Weighted_Load", "PD_Weighted_Load", "TD_Weighted_Load",
             "Effort_Weighted_Load", "Performance_Weighted_Load", "Frustration_Weighted_Load", "null", "WWL"};
     String baseDir = Environment.getExternalStorageDirectory().getAbsolutePath();
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
     public String fileName;
     public String filePath;
+    public String taskID;
+    public String taskName;
     public File f;
     public float count[] = {0,0,0,0,0,0,0,0,0,0,0,0};
 
@@ -94,6 +96,8 @@ public class Processing extends ActionBarActivity {
             Toast.makeText(getApplicationContext(), "Returning back to the Home Page.",
                     Toast.LENGTH_LONG).show();
             Intent myIntent = new Intent(Processing.this, MainActivity.class);
+            myIntent.putExtra("TASK_ID",taskID);
+            myIntent.putExtra("TASK_NAME",taskName);
             Processing.this.startActivity(myIntent);
             finish();
             return true;
@@ -105,12 +109,14 @@ public class Processing extends ActionBarActivity {
     private void initializeVariables() {
         textView_directory = (TextView) findViewById(R.id.folder_value_txt);
         textView_file = (TextView) findViewById(R.id.file_value_txt);
+        taskID = values_all[5];
+        taskName = values_all[6];
     }
 
     //Fuction to create csv file
     private void genCSV() {
         String timeStmp = sdf.format(new Date());
-        fileName = values_all[0] + "_" +values_all[5] + "_" + values_all[6];
+        fileName = values_all[5] + "_" + values_all[6];
         fileName = fileName + "_" + timeStmp + ".csv";
         filePath = baseDir + File.separator + "Task Load Analysis";
         File dir = new File(filePath);
@@ -118,7 +124,6 @@ public class Processing extends ActionBarActivity {
             dir.mkdirs();
         }
         filePath = filePath + File.separator + fileName;
-
 
         f = new File(filePath);
 
@@ -143,8 +148,8 @@ public class Processing extends ActionBarActivity {
             }
             else{
                 writer = new CSVWriter(new FileWriter(filePath));
+                writer.writeNext(answers_all1);
             }
-            writer.writeNext(answers_all1);
             writer.writeNext(values_all1);
             writer.close();
             textView_directory.setText(filePath);

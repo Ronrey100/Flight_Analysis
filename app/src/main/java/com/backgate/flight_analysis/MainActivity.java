@@ -64,6 +64,13 @@ public class MainActivity extends ActionBarActivity {
             questions_mix_1[i] = "Questions_2_" + random_value;
         }
         initializeVariables();
+        try{
+            task_id_name.setText(this.getIntent().getStringExtra("TASK_ID"));
+            task_name.setText(this.getIntent().getStringExtra("TASK_NAME"));
+        }catch (Exception e){
+            task_name.setText("");
+            task_id_name.setText("");
+        }
         addListenerOnButton();
     }
 
